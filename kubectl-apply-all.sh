@@ -12,4 +12,8 @@
 #
 # Apply the base Soucegraph deployment
 # shellcheck disable=SC2068
-kubectl apply --prune -l deploy=sourcegraph -f base --recursive $@
+# kubectl apply --prune -l deploy=sourcegraph -f base --recursive $@
+
+# We are using namespaced deploy
+./overlay-generate-cluster.sh namespaced generated-cluster
+kubectl apply -n sourcegraph --prune -l deploy=sourcegraph -f generated-cluster --recursive
