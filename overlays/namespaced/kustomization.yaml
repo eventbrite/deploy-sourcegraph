@@ -9,3 +9,9 @@ patchesStrategicMerge:
   - prometheus/prometheus.ClusterRoleBinding.yaml
   - prometheus/prometheus.ConfigMap.yaml
   - cadvisor/cadvisor.ClusterRoleBinding.yaml
+  - frontend/sourcegraph-frontend.Ingress.yaml
+patches:
+  - target:
+      kind: Ingress
+      name: sourcegraph-frontend
+    path: frontend/sourcegraph-frontend.Ingress-patch.json

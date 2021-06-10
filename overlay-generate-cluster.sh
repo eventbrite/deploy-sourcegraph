@@ -16,6 +16,8 @@ cp -R base "${BUILD_DIR}"/overlays/bases/deployments/base
 cp -R base "${BUILD_DIR}"/overlays/bases/rbac-roles/base
 cp -R base "${BUILD_DIR}"/overlays/bases/pvcs/base
 
-mkdir -p $2
+# Simple quotes since we are referencing variables
+toSubst='$INGRESS_HOST'
 
-kustomize build "${BUILD_DIR}"/overlays/$1 -o $2
+# Double quotes to expand $toSubst to the list of variables
+kustomize build "${BUILD_DIR}"/overlays/$1 | envsubst "$toSubst"
