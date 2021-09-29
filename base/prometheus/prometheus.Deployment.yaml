@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       - name: prometheus
-        image: index.docker.io/sourcegraph/prometheus:3.28.0@sha256:914e7e03e2599f9a0f4d31eb4cb47392c2fcb76205ca36da9653d1b66a94c24e
+        image: index.docker.io/sourcegraph/prometheus:3.32.0@sha256:7e592b8b34c20519b43fdcdc4bcf63cc7a0bb76113e6337e25d19b9eb26754c2
         terminationMessagePolicy: FallbackToLogsOnError
         readinessProbe:
           httpGet:
@@ -61,6 +61,7 @@ spec:
           requests:
             cpu: 500m
             memory: 6G
+      terminationGracePeriodSeconds: 120
       securityContext:
         runAsUser: 0
       serviceAccountName: prometheus

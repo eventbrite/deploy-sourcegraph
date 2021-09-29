@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   annotations:
     description: Backend for symbols operations.
+    kubectl.kubernetes.io/default-container: symbols
   labels:
     deploy: sourcegraph
     sourcegraph-resource-requires: no-cluster-admin
@@ -30,14 +31,17 @@ spec:
       - name: symbols
         env:
         - name: SYMBOLS_CACHE_SIZE_MB
-          value: "10000"
+          valueFrom:
+            resourceFieldRef:
+              containerName: symbols
+              resource: requests.ephemeral-storage
         - name: POD_NAME
           valueFrom:
             fieldRef:
               fieldPath: metadata.name
         - name: CACHE_DIR
           value: /mnt/cache/$(POD_NAME)
-        image: index.docker.io/sourcegraph/symbols:3.28.0@sha256:aa8bd7802db4da16ad32cca1ba619ce94aa5cc98e49e413909e9d23bfa089c14
+        image: index.docker.io/sourcegraph/symbols:3.32.0@sha256:27bd4753244c67c24495155f1849dc5aa6c4ae7986ac5b65255b5173461dbef4
         terminationMessagePolicy: FallbackToLogsOnError
         livenessProbe:
           httpGet:
@@ -71,7 +75,7 @@ spec:
         - mountPath: /mnt/cache
           name: cache-ssd
       - name: jaeger-agent
-        image: index.docker.io/sourcegraph/jaeger-agent:3.28.0@sha256:df843bdac4a961bc11cb3f5e963ee8894fe698f1de431906bea34a6ccc959174
+        image: index.docker.io/sourcegraph/jaeger-agent:3.32.0@sha256:8813e619ee645b1124eff4571dc980a37ea7efc19d13f4a4c8b3f70d91ca8454
         env:
           - name: POD_NAME
             valueFrom:

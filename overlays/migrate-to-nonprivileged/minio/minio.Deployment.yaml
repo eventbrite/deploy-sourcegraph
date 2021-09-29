@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minio
+spec:
+  template:
+    spec:
+      initContainers:
+        - name: transfer-file-ownership
+          image: index.docker.io/sourcegraph/alpine-3.12:insiders@sha256:7c2918a92c4969d7cef2366974b45488ba8443f1391bdc4ad682be46e1b03d8f
+          command: ["sh", "-c", "chown -R 100:101 /data"]
+          volumeMounts:
+          - mountPath: /data
+            name: minio-data
+          securityContext:
+            runAsUser: 0
