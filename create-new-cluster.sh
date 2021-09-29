@@ -17,8 +17,3 @@
 # Nginx-ingress controller and cert-manager are out of scope and assumed as already deployed
 kubectl apply -f custom-creation
 ./kubectl-apply-all.sh $@
-
-kubectl create secret generic gitserver-ssh \
---from-literal id_rsa=${GITHUB_SSH} \
---from-file known_hosts=${KNOWN_HOSTS} \
---namespace sourcegraph
