@@ -15,5 +15,5 @@
 # kubectl apply --prune -l deploy=sourcegraph -f base --recursive $@
 
 # We are using namespaced deploy
-./overlay-generate-cluster.sh namespaced | \
+./overlay-generate-cluster.sh eventbrite | \
   kubectl apply -n sourcegraph --prune -l deploy=sourcegraph -f -
