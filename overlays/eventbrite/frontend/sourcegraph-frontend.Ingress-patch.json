@@ -1,11 +1,11 @@
 [
-    { 
-        "op": "replace", 
-        "path": "/spec/rules/0/host", 
+    {
+        "op": "replace",
+        "path": "/spec/rules/0/host",
         "value": "${INGRESS_HOST}"
     },
     {
-        "op":"replace",
+        "op": "replace",
         "path": "/spec/tls/0/hosts/0",
         "value": "${INGRESS_HOST}"
     }
