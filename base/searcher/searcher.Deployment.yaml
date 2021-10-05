@@ -59,11 +59,11 @@ spec:
         resources:
           limits:
             cpu: "2"
-            ephemeral-storage: "5G"
+            ephemeral-storage: "26G"
             memory: 2G
           requests:
-            cpu: 250m
-            ephemeral-storage: "2G"
+            cpu: 500m
+            ephemeral-storage: "25G"
             memory: 500M
         volumeMounts:
         - mountPath: /mnt/cache
