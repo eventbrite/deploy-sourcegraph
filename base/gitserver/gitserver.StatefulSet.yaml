@@ -42,7 +42,7 @@ spec:
             cpu: "4"
             memory: 8G
           requests:
-            cpu: "500m"
+            cpu: "4" 
             memory: 8G
         volumeMounts:
         - mountPath: /data/repos
@@ -101,4 +101,4 @@ spec:
           # The size of disk used to mirror your git repositories.
           # If you change this, also change indexed-search's disk size.
           storage: 200Gi
-      storageClassName: ebs-csi-retain
+      storageClassName: sourcegraph
