@@ -2,13 +2,37 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: sourcegraph
 resources:
-  - namespace.yaml
+  - sourcegraph.Namespace.yaml
   - ../namespaced
 patchesStrategicMerge:
+  - cadvisor/cadvisor.ClusterRoleBinding.yaml
+  - codeinsights-db/codeinsights-db.Deployment.yaml
+  - codeinsights-db/codeinsights-db.PersistentVolumeClaim.yaml
+  - codeintel-db/codeintel-db.Deployment.yaml
+  - codeintel-db/codeintel-db.PersistentVolumeClaim.yaml
+  - frontend/sourcegraph-frontend.Deployment.yaml
+  - frontend/sourcegraph-frontend.Ingress.yaml
+  - gitserver/gitserver.StatefulSet.yaml
+  - grafana/grafana.StatefulSet.yaml
+  - indexed-search/indexed-search.StatefulSet.yaml
+  - minio/minio.Deployment.yaml
+  - minio/minio.PersistentVolumeClaim.yaml
+  - pgsql/pgsql.Deployment.yaml
+  - pgsql/pgsql.PersistentVolumeClaim.yaml
+  - precise-code-intel/worker.Deployment.yaml
   - prometheus/prometheus.ClusterRoleBinding.yaml
   - prometheus/prometheus.ConfigMap.yaml
-  - cadvisor/cadvisor.ClusterRoleBinding.yaml
-  - frontend/sourcegraph-frontend.Ingress.yaml
+  - prometheus/prometheus.Deployment.yaml
+  - prometheus/prometheus.PersistentVolumeClaim.yaml
+  - query-runner/query-runner.Deployment.yaml
+  - redis/redis-cache.Deployment.yaml
+  - redis/redis-cache.PersistentVolumeClaim.yaml
+  - redis/redis-store.Deployment.yaml
+  - redis/redis-store.PersistentVolumeClaim.yaml
+  - repo-updater/repo-updater.Deployment.yaml
+  - searcher/searcher.Deployment.yaml
+  - symbols/symbols.Deployment.yaml
+  - worker/worker.Deployment.yaml
 patches:
   - target:
       kind: Ingress

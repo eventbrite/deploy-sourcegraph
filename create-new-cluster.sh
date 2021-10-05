@@ -15,5 +15,4 @@
 # the relevant `kubectl apply` command to ./kubectl-apply-all.sh
 
 # Nginx-ingress controller and cert-manager are out of scope and assumed as already deployed
-kubectl apply -f custom-creation
 ./kubectl-apply-all.sh $@
