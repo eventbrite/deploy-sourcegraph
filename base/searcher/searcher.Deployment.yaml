@@ -35,13 +35,14 @@ spec:
             resourceFieldRef:
               containerName: searcher
               resource: requests.ephemeral-storage
+              divisor: 1M
         - name: POD_NAME
           valueFrom:
             fieldRef:
               fieldPath: metadata.name
         - name: CACHE_DIR
           value: /mnt/cache/$(POD_NAME)
-        image: index.docker.io/sourcegraph/searcher:3.33.0@sha256:777f315e897e91a3e01456784adf4b165116c5594a9610d8076e137b95d3a87d
+        image: index.docker.io/sourcegraph/searcher:3.34.1@sha256:b598c48d677127f22300fd85d4a220e8ed0d3ef5c0fbe2500f04821e6ef09d07
         terminationMessagePolicy: FallbackToLogsOnError
         ports:
         - containerPort: 3181
@@ -69,7 +70,7 @@ spec:
         - mountPath: /mnt/cache
           name: cache-ssd
       - name: jaeger-agent
-        image: index.docker.io/sourcegraph/jaeger-agent:3.33.0@sha256:3c3bb9885b86b720039aceaf5ffd826c1ef5e8121e063f9274a3de3aab660fb0
+        image: index.docker.io/sourcegraph/jaeger-agent:3.34.1@sha256:0e7c12cfe26f48b368852eb42dbcccf36ce798b2c8261f71ab67be088c363f11
         env:
           - name: POD_NAME
             valueFrom:

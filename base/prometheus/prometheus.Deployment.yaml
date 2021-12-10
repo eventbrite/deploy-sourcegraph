@@ -25,20 +25,15 @@ spec:
     spec:
       containers:
       - name: prometheus
-        image: index.docker.io/sourcegraph/prometheus:3.33.0@sha256:ba9124df14bfa48d853f11027f5a9428e1246c00f39a762a8cebcfad967f36e8
+        image: index.docker.io/sourcegraph/prometheus:3.34.1@sha256:3be3824f43f64d2e1a8c1bcae5509ff2289a45fec5b3227e93cde0a4b9c343bc
         terminationMessagePolicy: FallbackToLogsOnError
         readinessProbe:
           httpGet:
             path: /-/ready
             port: 9090
-          initialDelaySeconds: 30
-          timeoutSeconds: 30
-        livenessProbe:
-          httpGet:
-            path: /-/healthy
-            port: 9090
-          initialDelaySeconds: 30
-          timeoutSeconds: 30
+          timeoutSeconds: 3
+          failureThreshold: 120
+          periodSeconds: 5
         ports:
         - containerPort: 9090
           name: http

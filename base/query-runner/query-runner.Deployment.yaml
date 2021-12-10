@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: query-runner
-        image: index.docker.io/sourcegraph/query-runner:3.33.0@sha256:f0236d1008b9806e6c3f7ca49dcc42ac89fb0d598555e878b968fdda95d72a3f
+        image: index.docker.io/sourcegraph/query-runner:3.34.1@sha256:f25ff41178d3ab9013c400ceb10d2612932c019bcbaa6c87e82f6b2aa730e247
         terminationMessagePolicy: FallbackToLogsOnError
         ports:
         - containerPort: 3183
@@ -41,7 +41,7 @@ spec:
           requests:
             cpu: 500m
             memory: 1G
-      - image: index.docker.io/sourcegraph/jaeger-agent:3.33.0@sha256:3c3bb9885b86b720039aceaf5ffd826c1ef5e8121e063f9274a3de3aab660fb0
+      - image: index.docker.io/sourcegraph/jaeger-agent:3.34.1@sha256:0e7c12cfe26f48b368852eb42dbcccf36ce798b2c8261f71ab67be088c363f11
         name: jaeger-agent
         env:
           - name: POD_NAME
