@@ -29,7 +29,7 @@ spec:
       containers:
       - name: syntect-server
         env:
-        image: index.docker.io/sourcegraph/syntax-highlighter:3.34.1@sha256:23cb46271e3e205f7da1b01fcea3704a23b7c6fb5a41f4171d4596278523f35a
+        image: index.docker.io/sourcegraph/syntax-highlighter:3.35.2@sha256:8bcc3b9f9de36a8de0da4ab2ff409082e20bac054079f25cb4deeb632b225948
         terminationMessagePolicy: FallbackToLogsOnError
         livenessProbe:
           httpGet:

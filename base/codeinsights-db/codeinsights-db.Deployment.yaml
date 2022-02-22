@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
       - name: timescaledb
-        image: index.docker.io/sourcegraph/codeinsights-db:3.34.1@sha256:dd5264fb99f78fc70c35babe8e38a4ddb57959ad6853515f967691af0c8d22bf
+        image: index.docker.io/sourcegraph/codeinsights-db:3.35.2@sha256:8757a405867462e6ad83d7f715a4449f4fdc91bb92a6da236f72f039b776cf63
         env:
         - name: POSTGRES_PASSWORD # Accessible by Sourcegraph applications on the network only, so password auth is not used.
           value: password
