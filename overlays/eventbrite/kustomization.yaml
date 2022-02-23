@@ -24,7 +24,6 @@ patchesStrategicMerge:
   - prometheus/prometheus.ConfigMap.yaml
   - prometheus/prometheus.Deployment.yaml
   - prometheus/prometheus.PersistentVolumeClaim.yaml
-  - query-runner/query-runner.Deployment.yaml
   - redis/redis-cache.Deployment.yaml
   - redis/redis-cache.PersistentVolumeClaim.yaml
   - redis/redis-store.Deployment.yaml
