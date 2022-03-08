@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: zoekt-webserver
-        image: index.docker.io/sourcegraph/indexed-searcher:3.35.2@sha256:b627cf4d32d4bdc191468479fe95410031052044f520a5d0b78e49c30a8709c9
+        image: index.docker.io/sourcegraph/indexed-searcher:3.36.3@sha256:1399fbff116c249d4aec55c2c1e70c23e4617bf3a17921cfdede53893e97b533
         terminationMessagePolicy: FallbackToLogsOnError
         ports:
         - containerPort: 6070
@@ -47,7 +47,7 @@ spec:
         - mountPath: /data
           name: data
       - name: zoekt-indexserver
-        image: index.docker.io/sourcegraph/search-indexer:3.35.2@sha256:63b0061366a8c63537a5c5f5874f8da55d71d52dd002d79834b434eee3ee7f6d
+        image: index.docker.io/sourcegraph/search-indexer:3.36.3@sha256:a9a72e81cacdb644b0530229bd6b5c54dcd84d2d15d11976f28b59f970b85471
         terminationMessagePolicy: FallbackToLogsOnError
         ports:
         - containerPort: 6072
