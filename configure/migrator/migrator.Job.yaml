@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: migrator
-        image: index.docker.io/sourcegraph/migrator:3.37.0@sha256:404df69cfee90eaa9a3ab8b540a2d9affd22605caa5326a8ac4ba016e1d6d815
+        image: "index.docker.io/sourcegraph/migrator:3.38.1@sha256:4bd4fd68fc3e6d1c947847aec126ff8c4577da80cbd11252c6c72a482722ad66"
         args: ["up"]
         env:
           - name: PGHOST
@@ -57,5 +57,12 @@ spec:
             value: "postgres"
           - name: CODEINSIGHTS_PGSSLMODE
             value: "disable"
+        resources:
+          limits:
+            cpu: 500m
+            memory: 100M
+          requests:
+            cpu: 100m
+            memory: 50M
       restartPolicy: OnFailure
   backoffLimit: 4
