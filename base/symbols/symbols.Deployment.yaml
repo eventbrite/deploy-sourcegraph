@@ -76,11 +76,7 @@ spec:
         - mountPath: /mnt/cache
           name: cache-ssd
       - name: jaeger-agent
-<<<<<<< HEAD
-        image: index.docker.io/sourcegraph/jaeger-agent:3.37.0@sha256:04026339976f6107b6490dfe61c9d9b3a541594ba99ff5115667a54e4ec917ba
-=======
         image: index.docker.io/sourcegraph/jaeger-agent:3.38.1@sha256:1f4418465b32eb0b95e918f9ebbbd0efc04439a04d59ee268e5bfc5c1e800378
->>>>>>> v3.38.1
         env:
           - name: POD_NAME
             valueFrom:
