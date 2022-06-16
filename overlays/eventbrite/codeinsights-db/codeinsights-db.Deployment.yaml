@@ -6,7 +6,7 @@ spec:
   template:
     spec:
       containers:
-        - name: codeinsights-db
+        - name: codeinsights
           resources:
             requests:
               cpu: 500m
