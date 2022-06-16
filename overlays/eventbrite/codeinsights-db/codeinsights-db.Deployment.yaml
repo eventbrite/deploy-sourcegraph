@@ -6,7 +6,7 @@ spec:
   template:
     spec:
       containers:
-        - name: timescaledb
+        - name: codeinsights-db
           resources:
             requests:
               cpu: 500m
