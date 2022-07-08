@@ -27,7 +27,7 @@ spec:
       containers:
       - name: gitserver
         args: ["run"]
-        image: index.docker.io/sourcegraph/gitserver:3.39.1@sha256:a793d27673b84ced8dd10959559bb28f648aafd72cf032ed0f4294bb3fa4293a
+        image: index.docker.io/sourcegraph/gitserver:3.40.1@sha256:22d477c3c6c91a6bc737830ebdd7ecda70b7030bfc11a1a9c23f7905f061fb49
         terminationMessagePolicy: FallbackToLogsOnError
         livenessProbe:
           initialDelaySeconds: 5
@@ -43,7 +43,7 @@ spec:
             cpu: "4"
             memory: 8G
           requests:
-            cpu: "4" 
+            cpu: "4"
             memory: 8G
         volumeMounts:
         - mountPath: /data/repos
@@ -53,7 +53,7 @@ spec:
         # - mountPath: /root/.ssh
         #   name: ssh
       - name: jaeger-agent
-        image: index.docker.io/sourcegraph/jaeger-agent:3.39.1@sha256:d3666b99536ac50f737d6d635f677536267f00fe9e35800b1d3a43058e9fe02e
+        image: index.docker.io/sourcegraph/jaeger-agent:3.40.1@sha256:ccbdbd5ae55d23fdee60dc4b60d4fbf751d09104d0ab61c72db704e5272f07af
         env:
           - name: POD_NAME
             valueFrom:

@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: migrator
-        image: "index.docker.io/sourcegraph/migrator:3.39.1@sha256:d2658c0fa4ff4fe0487cef7983f00566f4533d5ad143f9ddb910310c6d011dfc"
+        image: "index.docker.io/sourcegraph/migrator:3.40.1@sha256:84ecc67b0874a3b3125c33b5548f6193126436d3bf10e3ab448a9fdeac1a21c7"
         args: ["up"]
         env:
           - name: PGHOST
