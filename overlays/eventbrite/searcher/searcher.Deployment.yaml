@@ -3,13 +3,18 @@ kind: Deployment
 metadata:
   name: searcher
 spec:
+  replicas: 1
   template:
     spec:
       containers:
       - name: searcher
         resources:
           limits:
-            ephemeral-storage: "5G"
+            ephemeral-storage: "9G"
           requests:
-            cpu: 250m
+            cpu: 500m
+            memory: 750Mi
             ephemeral-storage: "2G"
+          limits:
+            cpu: 2
+            memory: 2Gi

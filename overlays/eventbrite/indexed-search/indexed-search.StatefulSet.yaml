@@ -3,19 +3,6 @@ kind: StatefulSet
 metadata:
   name: indexed-search
 spec:
-  template:
-    spec:
-      containers:
-      - name: zoekt-webserver
-        resources:
-          requests:
-            cpu: 250m
-      - name: zoekt-indexserver
-        resources:
-          # zoekt-indexserver is CPU bound. The more CPU you allocate to it, the
-          # lower lag between a new commit and it being indexed for search.
-          requests:
-            cpu: 500m
   volumeClaimTemplates:
   - metadata:
       labels:

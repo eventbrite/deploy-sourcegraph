@@ -9,4 +9,7 @@ spec:
       - name: pgsql
         resources:
           requests:
-            cpu: 500m
+            cpu: 4
+            memory: 5Gi
+          limits:
+            memory: 5Gi

@@ -3,10 +3,15 @@ kind: Deployment
 metadata:
   name: sourcegraph-frontend
 spec:
+  replicas: 3
   template:
     spec:
       containers:
       - name: frontend
         resources:
           requests:
-            cpu: 250m
+            cpu: 2
+            memory: 4Gi
+          limits:
+            cpu: 4
+            memory: 4Gi
