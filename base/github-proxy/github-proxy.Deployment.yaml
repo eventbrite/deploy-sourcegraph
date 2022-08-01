@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: github-proxy
-        image: index.docker.io/sourcegraph/github-proxy:3.40.1@sha256:a78cb1a7ee2e05d4fa9e15c131085c6889297a8db9c80e9bbca9543f3cee9bab
+        image: index.docker.io/sourcegraph/github-proxy:3.41.1@sha256:91629dd027e2a95611405ac1483b0dea2613faf55f01680404d47725687e08fb
         terminationMessagePolicy: FallbackToLogsOnError
         ports:
         - containerPort: 3180
@@ -42,7 +42,7 @@ spec:
             cpu: 100m
             memory: 250M
       - name: jaeger-agent
-        image: index.docker.io/sourcegraph/jaeger-agent:3.40.1@sha256:ccbdbd5ae55d23fdee60dc4b60d4fbf751d09104d0ab61c72db704e5272f07af
+        image: index.docker.io/sourcegraph/jaeger-agent:3.41.1@sha256:3cffddd5767c48f4d7579f64afc34e6d2a91f1b25a9727cefc99a2af4639cc04
         env:
           - name: POD_NAME
             valueFrom:
