@@ -7,7 +7,7 @@ spec:
     spec:
       initContainers:
         - name: transfer-file-ownership
-          image: index.docker.io/sourcegraph/alpine-3.14:3.41.1@sha256:fc0aa428d457dfa159cd42ab9596910f989ccdd2432a9f4e75d109791f983cfa
+          image: index.docker.io/sourcegraph/alpine-3.14:3.42.2@sha256:0492b089f8c38225729cfbc7e7028b9f0bd084756e7c2b25a9efe296ad41dc2e
           command: ["sh", "-c", "chown -R 472:472 /var/lib/grafana"]
           volumeMounts:
             - mountPath: /var/lib/grafana
