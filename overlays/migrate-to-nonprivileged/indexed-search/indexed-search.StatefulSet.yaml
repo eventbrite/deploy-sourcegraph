@@ -7,7 +7,7 @@ spec:
     spec:
       initContainers:
         - name: transfer-file-ownership
-          image: index.docker.io/sourcegraph/alpine-3.14:3.43.1@sha256:3e4ea1ae1244419a9b72864904f3f70776c42dacaf2168f2328833c89eec1850
+          image: index.docker.io/sourcegraph/alpine-3.14:4.0.1@sha256:c83cc8eb5f01c001226bd34db90358d460a22dc03b3710ccdfa6fe3a7919b1a8
           command: ["sh", "-c", "chown -R 100:101 /data"]
           volumeMounts:
             - mountPath: /data

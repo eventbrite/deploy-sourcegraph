@@ -27,7 +27,15 @@ spec:
       containers:
       - name: gitserver
         args: ["run"]
-        image: index.docker.io/sourcegraph/gitserver:3.43.1@sha256:457d6a2851ac5a115e96985ed356a00421bd4714b2e247c6ed31457955f7f398
+        env:
+        # OTEL_AGENT_HOST must be defined before OTEL_EXPORTER_OTLP_ENDPOINT to substitute the node IP on which the DaemonSet pod instance runs in the latter variable
+        - name: OTEL_AGENT_HOST
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
+        - name: OTEL_EXPORTER_OTLP_ENDPOINT
+          value: http://$(OTEL_AGENT_HOST):4317
+        image: index.docker.io/sourcegraph/gitserver:4.0.1@sha256:01b100eb96baa3f8557cfcc60267b093fd6394946c28a3015a6825ef2e050744
         terminationMessagePolicy: FallbackToLogsOnError
         livenessProbe:
           initialDelaySeconds: 5
@@ -52,33 +60,6 @@ spec:
         # about configuring gitserver to use an SSH key
         # - mountPath: /root/.ssh
         #   name: ssh
-      - name: jaeger-agent
-        image: index.docker.io/sourcegraph/jaeger-agent:3.43.1@sha256:fd71f756fb2e422f6675699047f8c4f3dc37f5838efd3c2e867a61ee475d45dd
-        env:
-          - name: POD_NAME
-            valueFrom:
-              fieldRef:
-                apiVersion: v1
-                fieldPath: metadata.name
-        ports:
-        - containerPort: 5775
-          protocol: UDP
-        - containerPort: 5778
-          protocol: TCP
-        - containerPort: 6831
-          protocol: UDP
-        - containerPort: 6832
-          protocol: UDP
-        resources:
-          limits:
-            cpu: "1"
-            memory: 500M
-          requests:
-            cpu: 100m
-            memory: 100M
-        args:
-          - --reporter.grpc.host-port=jaeger-collector:14250
-          - --reporter.type=grpc
       securityContext:
         runAsUser: 0
       volumes:
