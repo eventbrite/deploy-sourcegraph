@@ -13,7 +13,7 @@ patchesStrategicMerge:
   - gitserver/gitserver.StatefulSet.yaml
   - grafana/grafana.StatefulSet.yaml
   - indexed-search/indexed-search.StatefulSet.yaml
-  - minio/minio.PersistentVolumeClaim.yaml
+  - blobstore/blobstore.PersistentVolumeClaim.yaml
   - pgsql/pgsql.Deployment.yaml
   - pgsql/pgsql.PersistentVolumeClaim.yaml
   - precise-code-intel/worker.Deployment.yaml
@@ -68,8 +68,8 @@ patches:
     path: resources-patches/jaeger.Deployment.json
   - target:
       kind: Deployment
-      name: minio
-    path: resources-patches/minio.Deployment.json
+      name: blobstore
+    path: resources-patches/blobstore.Deployment.json
   - target:
       kind: Deployment
       name: pgsql

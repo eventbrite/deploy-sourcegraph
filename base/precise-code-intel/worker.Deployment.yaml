@@ -29,6 +29,10 @@ spec:
       containers:
       - name: precise-code-intel-worker
         env:
+        - name: PRECISE_CODE_INTEL_UPLOAD_BACKEND
+          value: blobstore
+        - name: PRECISE_CODE_INTEL_UPLOAD_AWS_ENDPOINT
+          value: http://blobstore:9000
         - name: NUM_WORKERS
           value: '4'
         - name: POD_NAME
@@ -42,7 +46,7 @@ spec:
               fieldPath: status.hostIP
         - name: OTEL_EXPORTER_OTLP_ENDPOINT
           value: http://$(OTEL_AGENT_HOST):4317
-        image: index.docker.io/sourcegraph/precise-code-intel-worker:4.1.2@sha256:710f6da3b53cffbf49f95452a0871c2975768ebe0176e9c50026ae47e9e2a723
+        image: index.docker.io/sourcegraph/precise-code-intel-worker:4.2.1@sha256:6118becea00775de6f068441278388afadd84637d77030409f4306fe79d1428a
         terminationMessagePolicy: FallbackToLogsOnError
         livenessProbe:
           httpGet:

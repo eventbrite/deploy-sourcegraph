@@ -2,8 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    description: Handles repository metadata (not Git data) lookups and updates from
-      external code hosts and other similar services.
+    description: Handles repository metadata (not Git data) lookups and updates from external code hosts and other similar services.
     kubectl.kubernetes.io/default-container: repo-updater
   labels:
     deploy: sourcegraph
@@ -30,7 +29,7 @@ spec:
     spec:
       containers:
       - name: repo-updater
-        image: index.docker.io/sourcegraph/repo-updater:4.1.2@sha256:30e41659d7b60abf7061d3c90e0c8755e56df16cf00f5061fa330016446bceba
+        image: index.docker.io/sourcegraph/repo-updater:4.2.1@sha256:1a07d0ab7be1e2cde849c74d0edd072c80ce07de473d2a274d6421a046a9b43d
         env:
         # OTEL_AGENT_HOST must be defined before OTEL_EXPORTER_OTLP_ENDPOINT to substitute the node IP on which the DaemonSet pod instance runs in the latter variable
         - name: OTEL_AGENT_HOST
