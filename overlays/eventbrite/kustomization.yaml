@@ -8,15 +8,12 @@ patchesStrategicMerge:
   - codeinsights-db/codeinsights-db.ConfigMap.yaml
   - codeinsights-db/codeinsights-db.PersistentVolumeClaim.yaml
   - codeintel-db/codeintel-db.PersistentVolumeClaim.yaml
-  - frontend/sourcegraph-frontend.Deployment.yaml
   - frontend/sourcegraph-frontend.Ingress.yaml
   - gitserver/gitserver.StatefulSet.yaml
   - grafana/grafana.StatefulSet.yaml
   - indexed-search/indexed-search.StatefulSet.yaml
   - blobstore/blobstore.PersistentVolumeClaim.yaml
-  - pgsql/pgsql.Deployment.yaml
   - pgsql/pgsql.PersistentVolumeClaim.yaml
-  - precise-code-intel/worker.Deployment.yaml
   - prometheus/prometheus.ClusterRoleBinding.yaml
   - prometheus/prometheus.ConfigMap.yaml
   - prometheus/prometheus.PersistentVolumeClaim.yaml
@@ -24,7 +21,6 @@ patchesStrategicMerge:
   - redis/redis-store.PersistentVolumeClaim.yaml
   - searcher/searcher.Deployment.yaml
   - symbols/symbols.Deployment.yaml
-  - worker/worker.Deployment.yaml
 patches:
   - target:
       kind: Ingress

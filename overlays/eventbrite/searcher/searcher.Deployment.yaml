@@ -12,9 +12,4 @@ spec:
           limits:
             ephemeral-storage: "9G"
           requests:
-            cpu: 500m
-            memory: 750Mi
             ephemeral-storage: "2G"
-          limits:
-            cpu: 2
-            memory: 2Gi

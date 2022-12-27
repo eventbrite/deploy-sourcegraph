@@ -9,9 +9,4 @@ spec:
       - name: symbols
         resources:
           requests:
-            cpu: 2
-            memory: 2Gi
             ephemeral-storage: "10G"
-          limits:
-            cpu: 4
-            memory: 8Gi
