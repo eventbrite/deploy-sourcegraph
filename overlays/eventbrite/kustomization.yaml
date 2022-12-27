@@ -5,7 +5,7 @@ resources:
   - sourcegraph.Namespace.yaml
   - ../namespaced
 patchesStrategicMerge:
-  - cadvisor/cadvisor.ClusterRoleBinding.yaml
+  - codeinsights-db/codeinsights-db.ConfigMap.yaml
   - codeinsights-db/codeinsights-db.PersistentVolumeClaim.yaml
   - codeintel-db/codeintel-db.PersistentVolumeClaim.yaml
   - frontend/sourcegraph-frontend.Deployment.yaml
