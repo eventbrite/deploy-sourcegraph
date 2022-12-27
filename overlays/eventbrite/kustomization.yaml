@@ -4,6 +4,8 @@ namespace: sourcegraph
 resources:
   - sourcegraph.Namespace.yaml
   - ../namespaced
+  # Add Metrics credentials for autoindexer autoscaling
+  - worker/worker-metrics.Secret.yaml
 patchesStrategicMerge:
   - codeinsights-db/codeinsights-db.ConfigMap.yaml
   - codeinsights-db/codeinsights-db.PersistentVolumeClaim.yaml
@@ -22,10 +24,17 @@ patchesStrategicMerge:
   - searcher/searcher.Deployment.yaml
   - symbols/symbols.Deployment.yaml
 patches:
+  # Add External URL
   - target:
       kind: Ingress
       name: sourcegraph-frontend
     path: frontend/sourcegraph-frontend.Ingress-patch.json
+  # Add metrics exporting for autoindexing
+  - target:
+      kind: Deployment
+      name: worker
+    path: worker/worker.Deployment.patch.yaml
+  # Reduce requested ram. Remove CPU limits.
   - target:
       kind: DaemonSet
       name: cadvisor
