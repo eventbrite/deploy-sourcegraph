@@ -32,3 +32,13 @@
   value:
     name: EXECUTOR_METRIC_AWS_REGION
     value: us-east-1
+- op: add
+  path: "/spec/template/spec/containers/0/env/-"
+  value:
+    name: PRECISE_CODE_INTEL_AUTO_INDEXING_TASK_INTERVAL
+    value: 1m
+- op: add
+  path: "/spec/template/spec/containers/0/env/-"
+  value:
+    name: PRECISE_CODE_INTEL_AUTO_INDEXING_REPOSITORY_PROCESS_DELAY
+    value: 10s
