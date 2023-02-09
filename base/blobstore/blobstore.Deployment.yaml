@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
       - name: blobstore
-        image: index.docker.io/sourcegraph/blobstore:4.3.0@sha256:94722bbe55c15cd533cf1c27bd0bb24f01e78caf61513deb9e6da73742e3075b
+        image: index.docker.io/sourcegraph/blobstore:4.4.1@sha256:d8f7d04c870f9c5c4a6b6fc8ccd7ed85980ceac6d5d527fa224499e837a39bce
         terminationMessagePolicy: FallbackToLogsOnError
         ports:
         - containerPort: 9000
