@@ -5,11 +5,15 @@ resources:
   - sourcegraph.Namespace.yaml
   - ../namespaced
   # Add Metrics credentials for autoindexer autoscaling
-  - worker/worker-metrics.Secret.yaml
+  # - worker/worker-metrics.Secret.yaml
+  - ../bases/executors
+  - executors/executor.ExternalSecret.yaml
 patchesStrategicMerge:
   - codeinsights-db/codeinsights-db.ConfigMap.yaml
   - codeinsights-db/codeinsights-db.PersistentVolumeClaim.yaml
   - codeintel-db/codeintel-db.PersistentVolumeClaim.yaml
+  - executors/private-docker-registry.PersistentVolumeClaim.yaml
+  - executors/executor.Deployment.patch.yaml
   - frontend/sourcegraph-frontend.Ingress.yaml
   - gitserver/gitserver.StatefulSet.yaml
   - grafana/grafana.StatefulSet.yaml

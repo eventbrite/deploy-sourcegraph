@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- base/executor/docker-daemon.ConfigMap.yaml
+- base/executor/executor.Deployment.yaml
+- base/executor/executor.Service.yaml
+- base/private-docker-registry/private-docker-registry.Deployment.yaml
+- base/private-docker-registry/private-docker-registry.PersistentVolumeClaim.yaml
+- base/private-docker-registry/private-docker-registry.Service.yaml

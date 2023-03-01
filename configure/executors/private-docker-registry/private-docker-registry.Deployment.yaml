@@ -14,6 +14,9 @@ spec:
     matchLabels:
       app: private-docker-registry
   template:
+    metadata:
+      labels:
+        app: private-docker-registry
     spec:
       containers:
         - image: index.docker.io/registry:2

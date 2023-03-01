@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: executor
+spec:
+  template:
+    spec:
+      containers:
+        - name: executor
+          env:
+            - name: EXECUTOR_FRONTEND_URL
+              value: http://sourcegraph-frontend:30080
+            - name: EXECUTOR_QUEUE_NAME
+              value: "codeintel"
+            - name: EXECUTOR_FRONTEND_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: executor-secret
+                  key: EXECUTOR_FRONTEND_PASSWORD
