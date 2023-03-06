@@ -3,10 +3,17 @@ kind: Deployment
 metadata:
   name: executor
 spec:
+  replicas: 5
   template:
     spec:
       containers:
         - name: executor
+          resources:
+            requests:
+              cpu: "1000m"
+              memory: 2Gi
+          livenessProbe: null
+          readinessProbe: null
           env:
             - name: EXECUTOR_FRONTEND_URL
               value: http://sourcegraph-frontend:30080
